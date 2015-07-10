@@ -14,7 +14,9 @@
 
     var config = {
         appErrorPrefix: '[tourism Error] ',
-        appTitle: 'tourism'
+        appTitle: 'tourism',
+        unknownImageSource: null,
+        cdnBasePath: '/'
     };
 
     core.value('config', config);
