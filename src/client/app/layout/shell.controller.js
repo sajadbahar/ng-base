@@ -26,6 +26,7 @@
         }
 
         function hideSplash() {
+            // FIXME: remove timeout
             //Force a 1 second delay so we can see the splash.
             $timeout(function() {
                 $rootScope.showSplash = false;
