@@ -82,6 +82,7 @@
             function init() {
                 handleRoutingErrors();
                 updateDocTitle();
+                checkRouteRights();
             }
 
             function getStates() { return $state.get(); }
@@ -95,6 +96,27 @@
                         $rootScope.title = title; // data bind to <title>
                     }
                 );
+            }
+
+            function checkRouteRights() {
+                $rootScope.$on('$stateChangeStart', function(
+                  event, toState, toParams, fromState, fromParams) {
+                    if (toState && toState.data && Array.isArray(toState.data.restrictAccess)) {
+                        var restricted = toState.data.restrictAccess;
+                        var logged = true;
+                        if (logged && restricted.indexOf('notLogged') > -1) {
+                            event.preventDefault();
+                            logger.log('IllegalAccess', 'State <' + toState.name +
+                                       '> is restricted to non logged users !');
+                            $state.go('loading');
+                        } else if (!logged && restricted.indexOf('logged') > -1) {
+                            event.preventDefault();
+                            logger.log('IllegalAccess', 'State <' + toState.name +
+                                       '> is restricted to logged users !');
+                            $state.go('loading');
+                        }
+                    }
+                });
             }
         }
     }
