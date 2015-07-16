@@ -131,6 +131,8 @@ gulp.task('wiredep', function() {
 
     // Only include stubs if flag is enabled
     var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
+    // add dist js file
+    js = js.concat(config.dist.js);
 
     return gulp
         .src(config.index)
@@ -142,9 +144,13 @@ gulp.task('wiredep', function() {
 gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
     log('Wire up css into the html, after files are ready');
 
+    var css = config.css;
+    // add dist css file
+    css = css.concat(config.dist.css);
+
     return gulp
         .src(config.index)
-        .pipe(inject(config.css, '', config.cssOrder))
+        .pipe(inject(css, '', config.cssOrder))
         .pipe(gulp.dest(config.client));
 });
 

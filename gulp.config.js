@@ -22,7 +22,8 @@ module.exports = function() {
         // all javascript that we want to vet
         alljs: [
             './src/**/*.js',
-            './*.js'
+            './*.js',
+            '!' + client + 'dist/**/*.js'
         ],
         build: './build/',
         client: client,
@@ -30,6 +31,11 @@ module.exports = function() {
             client + 'styles/**/*.css',
             temp + '*.css'
         ],
+        // any package not in bower and we want to inject
+        dist: {
+            css: client + 'dist/**/*.css',
+            js: client + 'dist/**/*.js'
+        },
         fonts: bower.directory + 'font-awesome/fonts/**/*.*',
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
