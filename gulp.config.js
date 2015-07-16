@@ -46,6 +46,9 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
+        cssOrder: [
+            '**/styles.css'
+        ],
         less: client + 'styles/**/*.less',
         report: report,
         root: root,
