@@ -1,6 +1,6 @@
 {
-  "name": "tourism",
-  "description": "tourism Project Generated from HotTowel Angular",
+  "name": "ng-base",
+  "description": "ng-base Project Generated from HotTowel Angular",
   "version": "0.0.0",
   "scripts": {
     "init": "npm install",

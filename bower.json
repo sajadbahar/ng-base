@@ -1,7 +1,7 @@
 {
-    "name": "tourism",
+    "name": "ng-base",
     "version": "0.0.1",
-    "description": "tourism",
+    "description": "ng-base",
     "authors": [],
     "license": "MIT",
     "ignore": [

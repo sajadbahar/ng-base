@@ -13,8 +13,8 @@
     }
 
     var config = {
-        appErrorPrefix: '[tourism Error] ',
-        appTitle: 'tourism',
+        appErrorPrefix: '[ng-base Error] ',
+        appTitle: 'ng-base',
         unknownImageSource: null,
         cdnBasePath: '/'
     };
