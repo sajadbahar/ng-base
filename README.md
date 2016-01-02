@@ -82,7 +82,8 @@ app --> [
 			ui.router,
 			blocks.exception,
 			blocks.logger,
-			blocks.router
+			blocks.router,
+			ngResource
 		]
     ]
 ```
