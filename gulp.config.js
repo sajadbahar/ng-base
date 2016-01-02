@@ -29,14 +29,14 @@ module.exports = function() {
         client: client,
         css: [
             client + 'styles/**/*.css',
-            temp + '*.css'
+            temp + '**/*.css'
         ],
         // any package not in bower and we want to inject
         dist: {
             css: client + 'dist/**/*.css',
             js: client + 'dist/**/*.js'
         },
-        fonts: bower.directory + 'font-awesome/fonts/**/*.*',
+        fonts: [bower.directory + 'font-awesome/fonts/**/*.*', client + 'fonts/**/*.*'],
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
         images: client + 'images/**/*.*',
@@ -53,9 +53,13 @@ module.exports = function() {
             '**/*.js'
         ],
         cssOrder: [
-            '**/styles.css'
+            '**/styles.css',
+            '**/custom.css',
+            '**/**/*-rtl.css'
         ],
         less: client + 'styles/**/*.less',
+        sass: client + 'styles/**/*.sass',
+        scss: client + 'styles/**/*.scss',
         report: report,
         root: root,
         server: server,
