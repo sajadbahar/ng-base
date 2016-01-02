@@ -51,6 +51,10 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
+        fonts: [bower.directory + 'font-awesome/fonts/**/*.*'],
+        cssOrder: [
+            '**/styles.css'
+        ],
         less: client + 'styles/**/*.less',
         sass: client + 'styles/**/*.sass',
         scss: client + 'styles/**/*.scss',
