@@ -36,7 +36,6 @@ module.exports = function() {
             css: client + 'dist/**/*.css',
             js: client + 'dist/**/*.js'
         },
-        fonts: [bower.directory + 'font-awesome/fonts/**/*.*', client + 'fonts/**/*.*'],
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
         images: client + 'images/**/*.*',
@@ -51,11 +50,6 @@ module.exports = function() {
             '**/app.module.js',
             '**/*.module.js',
             '**/*.js'
-        ],
-        cssOrder: [
-            '**/styles.css',
-            '**/custom.css',
-            '**/**/*-rtl.css'
         ],
         less: client + 'styles/**/*.less',
         sass: client + 'styles/**/*.sass',
