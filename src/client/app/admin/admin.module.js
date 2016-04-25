@@ -1,9 +1,14 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('app.admin', [
-        'app.core',
-        'app.widgets'
-      ]);
+var adminController = require('./admin.controller');
 
-})();
+var name = 'app.admin';
+
+var mo = angular
+  .module(name, [
+    'app.core',
+    'app.widgets'
+  ])
+  .controller('AdminController', adminController);
+
+module.exports = mo;

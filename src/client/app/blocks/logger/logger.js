@@ -1,47 +1,45 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('blocks.logger')
-        .factory('logger', logger);
+module.exports = logger;
 
-    logger.$inject = ['$log', 'toastr'];
+var toastr = require('toastr/toastr');
 
-    /* @ngInject */
-    function logger($log, toastr) {
-        var service = {
-            showToasts: true,
+logger.$inject = ['$log'];
 
-            error   : error,
-            info    : info,
-            success : success,
-            warning : warning,
+/* @ngInject */
+function logger($log) {
+    var service = {
+        showToasts: true,
 
-            // straight to console; bypass toastr
-            log     : $log.log
-        };
+        error   : error,
+        info    : info,
+        success : success,
+        warning : warning,
 
-        return service;
-        /////////////////////
+        // straight to console; bypass toastr
+        log     : $log.log
+    };
 
-        function error(message, data, title) {
-            toastr.error(message, title);
-            $log.error('Error: ' + message, data);
-        }
+    return service;
+    /////////////////////
 
-        function info(message, data, title) {
-            toastr.info(message, title);
-            $log.info('Info: ' + message, data);
-        }
-
-        function success(message, data, title) {
-            toastr.success(message, title);
-            $log.info('Success: ' + message, data);
-        }
-
-        function warning(message, data, title) {
-            toastr.warning(message, title);
-            $log.warn('Warning: ' + message, data);
-        }
+    function error(message, data, title) {
+        toastr.error(message, title);
+        $log.error('Error: ' + message, data);
     }
-}());
+
+    function info(message, data, title) {
+        toastr.info(message, title);
+        $log.info('Info: ' + message, data);
+    }
+
+    function success(message, data, title) {
+        toastr.success(message, title);
+        $log.info('Success: ' + message, data);
+    }
+
+    function warning(message, data, title) {
+        toastr.warning(message, title);
+        $log.warn('Warning: ' + message, data);
+    }
+}

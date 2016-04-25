@@ -1,36 +1,35 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('app.layout')
-        .controller('ShellController', ShellController);
+require('./shell.html');
 
-    ShellController.$inject = ['$rootScope', '$timeout', 'config', 'logger'];
-    /* @ngInject */
-    function ShellController($rootScope, $timeout, config, logger) {
-        var vm = this;
-        vm.busyMessage = 'Please wait ...';
-        vm.isBusy = true;
-        $rootScope.showSplash = true;
-        vm.navline = {
-            title: config.appTitle,
-            text: 'Created by John Papa',
-            link: 'http://twitter.com/john_papa'
-        };
+module.exports = ShellController;
 
-        activate();
+ShellController.$inject = ['$rootScope', '$timeout', 'config', 'logger'];
+/* @ngInject */
+function ShellController($rootScope, $timeout, config, logger) {
+    var vm = this;
+    vm.busyMessage = 'Please wait ...';
+    vm.isBusy = true;
+    $rootScope.showSplash = true;
+    console.log(config);
+    vm.navline = {
+        title: config.appTitle,
+        text: 'Created by',
+        link: 'http://twitter.com/john_papa'
+    };
 
-        function activate() {
-            logger.success(config.appTitle + ' loaded!', null);
-            hideSplash();
-        }
+    activate();
 
-        function hideSplash() {
-            // FIXME: remove timeout
-            //Force a 1 second delay so we can see the splash.
-            $timeout(function() {
-                $rootScope.showSplash = false;
-            }, 1000);
-        }
+    function activate() {
+        logger.success('loaded!', null);
+        hideSplash();
     }
-})();
+
+    function hideSplash() {
+        // FIXME: remove timeout
+        //Force a 1 second delay so we can see the splash.
+        $timeout(function() {
+            $rootScope.showSplash = false;
+        }, 1000);
+    }
+}

@@ -1,20 +1,16 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular
-        .module('app.admin')
-        .controller('AdminController', AdminController);
+module.exports = AdminController;
 
-    AdminController.$inject = ['logger'];
-    /* @ngInject */
-    function AdminController(logger) {
-        var vm = this;
-        vm.title = 'Admin';
+AdminController.$inject = ['logger'];
+/* @ngInject */
+function AdminController(logger) {
+    var vm = this;
+    vm.title = 'Admin';
 
-        activate();
+    activate();
 
-        function activate() {
-            logger.info('Activated Admin View');
-        }
+    function activate() {
+        logger.info('Activated Admin View');
     }
-})();
+}
