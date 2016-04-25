@@ -1,28 +1,25 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('app.widgets')
-        .directive('htWidgetHeader', htWidgetHeader);
+module.exports = htWidgetHeader;
+var templateUrl = require('./widget-header.html');
 
-    /* @ngInject */
-    function htWidgetHeader() {
-        //Usage:
-        //<div ht-widget-header title="vm.map.title"></div>
-        // Creates:
-        // <div ht-widget-header=""
-        //      title="Movie"
-        //      allow-collapse="true" </div>
-        var directive = {
-            scope: {
-                'title': '@',
-                'subtitle': '@',
-                'rightText': '@',
-                'allowCollapse': '@'
-            },
-            templateUrl: 'app/widgets/widget-header.html',
-            restrict: 'EA'
-        };
-        return directive;
-    }
-})();
+/* @ngInject */
+function htWidgetHeader() {
+    //Usage:
+    //<div ht-widget-header title="vm.map.title"></div>
+    // Creates:
+    // <div ht-widget-header=""
+    //      title="Movie"
+    //      allow-collapse="true" </div>
+    var directive = {
+        scope: {
+            'title': '@',
+            'subtitle': '@',
+            'rightText': '@',
+            'allowCollapse': '@'
+        },
+        templateUrl: templateUrl,
+        restrict: 'EA'
+    };
+    return directive;
+}

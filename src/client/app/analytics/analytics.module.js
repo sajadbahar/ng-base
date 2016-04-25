@@ -1,21 +1,13 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    angular.module('app.analytics', [
-        'app.core'
-      ])
-        .config(configure)
-        .run(run);
+require('../core/core.module');
+var analyticsService = require('./analytics.service');
 
-    configure.$inject = [];
-    /* @ngInject */
-    function configure() {
-        // Config analytics here, like token code if needed
-    }
+var name = 'app.analytics';
 
-    run.$inject = ['$rootScope'];
-    /* @ngInject */
-    function run($rootScope) {
-    }
+var mo = angular.module(name, [
+    'app.core'
+  ])
+    .factory('Analytics', analyticsService);
 
-})(window.angular);
+module.exports = mo;

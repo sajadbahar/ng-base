@@ -1,28 +1,25 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('app.layout')
-        .directive('htTopNav', htTopNav);
+module.exports = htTopNav;
+var templateUrl = require('./ht-top-nav.html');
+
+/* @ngInject */
+function htTopNav () {
+    var directive = {
+        bindToController: true,
+        controller: TopNavController,
+        controllerAs: 'vm',
+        restrict: 'EA',
+        scope: {
+            'navline': '='
+        },
+        templateUrl: templateUrl
+    };
 
     /* @ngInject */
-    function htTopNav () {
-        var directive = {
-            bindToController: true,
-            controller: TopNavController,
-            controllerAs: 'vm',
-            restrict: 'EA',
-            scope: {
-                'navline': '='
-            },
-            templateUrl: 'app/layout/ht-top-nav.html'
-        };
-
-        /* @ngInject */
-        function TopNavController() {
-            var vm = this;
-        }
-
-        return directive;
+    function TopNavController() {
+        var vm = this;
     }
-})();
+
+    return directive;
+}
